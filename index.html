@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Shopping Website</title>
+<style>
+body {font-family: Arial, sans-serif; background:#f2f2f2; margin:0;}
+.login-box{width:300px;margin:100px auto;padding:20px;background:white;text-align:center;border-radius:10px;}
+input{width:90%;padding:10px;margin:8px 0;}
+button{padding:10px 15px;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
+.login-btn{background:linear-gradient(to right,#ff9800,#ff5722);color:white;}
+#main{display:none;padding:20px;}
+.search-btn{background:#2196f3;color:white;}
+.product{background:white;padding:15px;margin:10px;border-radius:10px;}
+.buy-btn{background:#4caf50;color:white;}
+.offer{color:red;font-weight:bold;}
+.review{background:#fff3cd;padding:10px;margin:8px;border-radius:5px;}
+.pay-btn{background:#9c27b0;color:white;}
+</style>
+</head>
+<body>
+
+<div class="login-box" id="login">
+<h2>Login</h2>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button class="login-btn" onclick="login()">Login</button>
+</div>
+
+<div id="main">
+<h2>🛒 Product Store</h2>
+<input type="text" id="search" placeholder="Search product">
+<button class="search-btn" onclick="searchProduct()">Search</button>
+<p id="result"></p>
+
+<div class="product"><h3>Cucumber – ₹30/kg <span class="offer">50% OFF</span></h3><button class="buy-btn" onclick="buy()">Buy</button></div>
+<div class="product"><h3>Carrot – ₹45/kg <span class="offer">50% OFF</span></h3><button class="buy-btn" onclick="buy()">Buy</button></div>
+<div class="product"><h3>Shoes – ₹500 <span class="offer">50% OFF</span></h3><button class="buy-btn" onclick="buy()">Buy</button></div>
+<div class="product"><h3>Shirts – ₹600 <span class="offer">50% OFF</span></h3><button class="buy-btn" onclick="buy()">Buy</button></div>
+
+<h3>⭐ Reviews</h3>
+<div class="review">Apple – ₹120/kg (50% OFF)</div>
+<div class="review">Mango – ₹100/kg (50% OFF)</div>
+
+<button class="pay-btn" onclick="payment()">Pay / Place Order</button>
+</div>
+
+<script>
+function login(){
+ if(email.value && password.value){
+  login.style.display='none';
+  main.style.display='block';
+ } else alert('Enter email & password');
+}
+function searchProduct(){
+ let p=['cucumber','carrot','shoes','shirts','apple','mango'];
+ let s=search.value.toLowerCase();
+ result.innerHTML=p.includes(s)?'✅ Product available':'❌ Product is Sold Out';
+ result.style.color=p.includes(s)?'green':'red';
+}
+function buy(){alert('Added to cart');}
+function payment(){alert('✅ Successfully Purchased');}
+</script>
+
+</body>
+</html>
